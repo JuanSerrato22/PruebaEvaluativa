@@ -13,7 +13,8 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 
 // 2. Registrar ApplicationDbContext con SQL Server (o el proveedor que uses)
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
+    options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
+        new MySqlServerVersion(new Version(10, 4, 32))));
 
 // 3. Registrar repositorios (Data)
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
