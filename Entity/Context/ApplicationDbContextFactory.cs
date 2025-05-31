@@ -20,7 +20,7 @@ namespace Entity.Context
             var connectionString = configuration.GetConnectionString("DefaultConnection");
 
             var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
-            optionsBuilder.UseMySql(connectionString, new MySqlServerVersion(new Version(10, 4, 32)));
+            optionsBuilder.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 36)));
 
             return new ApplicationDbContext(optionsBuilder.Options, configuration);
 
